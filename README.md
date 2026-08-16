@@ -143,7 +143,7 @@ The **Amazon S3 bucket** is used for **secure file storage**. Uploaded files are
 
 ### 📸 **Visual Reference**
 
-![S3 Bucket Setup](./img/S3 Bucket.png)
+![S3 Bucket Setup](./img/S3-Bucket.png)
 
 ---
 ## **2.2 Amazon DynamoDB Table Setup**
@@ -207,7 +207,7 @@ Each record in the table stores metadata related to the uploaded file:
 
 | **S3 Bucket (Storage)**        | **DynamoDB (Metadata)**            |
 |--------------------------------|------------------------------------|
-| ![S3 Bucket Setup](./img/S3-Bucket-Uploads.png) | ![DynamoDB Table](./img/DynamoDB-table-File.png)  |
+| ![S3 Bucket Setup](./img/S3-Bucket-Uploads.png) | ![DynamoDB Table](./img/DynamoDB-Table-File.png)  |
 
 ---
 

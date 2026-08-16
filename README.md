@@ -207,7 +207,7 @@ Each record in the table stores metadata related to the uploaded file:
 
 | **S3 Bucket (Storage)**        | **DynamoDB (Metadata)**            |
 |--------------------------------|------------------------------------|
-| ![S3 Bucket Setup](./img/S3 Bucket Uploads.png) | ![DynamoDB Table](./img/DynamoDB table File.png)  |
+| ![S3 Bucket Setup](./img/S3-Bucket-Uploads.png) | ![DynamoDB Table](./img/DynamoDB-table-File.png)  |
 
 ---
 
@@ -270,7 +270,7 @@ For a production environment, it is recommended to follow the **Principle of Lea
 
 | **IAM Role Diagram** |
 |----------------------|
-| ![IAM Role Setup](./img/IAM Policies.png) |
+| ![IAM Role Setup](./img/IAM-Policies.png) |
 
 ---
 # 🔄 3. Application Workflow
@@ -362,45 +362,6 @@ The application uses **AWS IAM permissions** and **pre-signed S3 URLs** to provi
 
 ---
 
-## 6.1 Deployment Steps
-
-## 1. Infrastructure Setup
-
-### Create S3 Bucket
-
-```bash
-aws s3api create-bucket \
-  --bucket yogesh-sacred-temple-uploader \
-  --region ap-south-1 \
-  --create-bucket-configuration LocationConstraint=ap-south-1
-
-
-## 6.2 IAM Role Configuration
-
-The Lambda execution role provides the required permissions for accessing Amazon S3 and Amazon DynamoDB.
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:PutObject",
-        "s3:GetObject"
-      ],
-      "Resource": "arn:aws:s3:::yogesh-sacred-temple-uploader/*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "dynamodb:PutItem"
-      ],
-      "Resource": "arn:aws:dynamodb:ap-south-1:*:table/sacred-temple-files"
-    }
-  ]
-}
-````
 # ⚡ 5.3 Lambda Function Deployment
 
 The **Lambda function** handles file upload requests, stores files in **Amazon S3**, saves file metadata in **Amazon DynamoDB**, and generates **temporary pre-signed URLs** for file access.
@@ -434,7 +395,7 @@ The `lambda_function.py` file contains the main application logic for:
 
 ### 📸 **Visual Reference**
 
-![Lambda Function File](./img/Lambda Function.png)
+![Lambda Function File](./img/Lambda-Function.png)
 
 ---
 
@@ -446,11 +407,11 @@ The `lambda_function.py` file contains the main application logic for:
 
 ## Stored Data in S3
 
-![](./img/S3 Bucket Uploads.png)
+![](./img/S3-Bucket-Uploads.png)
 
 ## Stored Data in DynamoDB
 
-![](./img/DynamoDB table File.png)
+![](./img/DynamoDB-table-File.png)
 
 
 # 📦 Usage Instructions
